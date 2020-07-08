@@ -105,7 +105,12 @@ changeNewPetDescription = (event) => {
 
 
   render = () => {
+    let images = []
+    for(let pet of this.state.pets){
+      images.push(pet.image);
+    }
     return <div className="container">
+          <div>
           <h2>Post Pet</h2>
             <form className="container"  onSubmit={this.createPet}>
               <input onKeyUp={this.changeNewPetName} type="text" placeholder="name"/><br/>
@@ -113,10 +118,22 @@ changeNewPetDescription = (event) => {
               <input onKeyUp={this.changeNewPetDescription} type="text" placeholder="description"/><br/>
               <input type="submit" value="Post Pet"/>
             </form>
+            <div className="carousel">
+
+                 <a className="carousel-item" href="#one!"><img src={images[0]} /> </a>
+                 <a className="carousel-item" href="#one!"><img src={images[1]} /> </a>
+                 <a className="carousel-item" href="#one!"><img src={images[2]} /> </a>
+                 <a className="carousel-item" href="#one!"><img src={images[3]} /> </a>
+                 <a className="carousel-item" href="#one!"><img src={images[4]} /> </a>
+                 <a className="carousel-item" href="#one!"><img src={images[5]} /> </a>
+                 <a className="carousel-item" href="#one!"><img src={images[6]} /> </a>
+
+            </div>
+            </div>
             <h2>Pets for adoption</h2>
             <div className="allPets">
             {this.state.pets.map((pet, i) => {
-              return <Pets
+              return  <Pets
                         pet={pet} key={i}
                         deletePet={this.deletePet}
                         updatePet={this.updatePet}
