@@ -121,6 +121,10 @@ toggleHomePage = () => {
 
 
   render = () => {
+     let images = []
+    for(let pet of this.state.pets){
+      images.push(pet.image);
+    }
     return <div>
     <nav className="nav-bar">
       Navigation
@@ -130,22 +134,39 @@ toggleHomePage = () => {
     <div className="container">
         { this.state.createFormShow ? (
           <div className="create-form">
-            <h2>Post Pet</h2>
+    
+          <h2>Post Pet</h2>
             <form className="container"  onSubmit={this.createPet}>
               <input onKeyUp={this.changeNewPetName} type="text" placeholder="name"/><br/>
               <input onKeyUp={this.changeNewPetImage} type="text" placeholder="image url"/><br/>
               <input onKeyUp={this.changeNewPetDescription} type="text" placeholder="description"/><br/>
               <input type="submit" value="Post Pet"/>
             </form>
+
           </div>
           ) : " "
         }
 
         { this.state.homePageShow ? (
+
+            <div className="carousel">
+
+                 <a className="carousel-item" href="#one!"><img src={images[0]} /> </a>
+                 <a className="carousel-item" href="#one!"><img src={images[1]} /> </a>
+                 <a className="carousel-item" href="#one!"><img src={images[2]} /> </a>
+                 <a className="carousel-item" href="#one!"><img src={images[3]} /> </a>
+                 <a className="carousel-item" href="#one!"><img src={images[4]} /> </a>
+                 <a className="carousel-item" href="#one!"><img src={images[5]} /> </a>
+                 <a className="carousel-item" href="#one!"><img src={images[6]} /> </a>
+
+            </div>
+            </div>
+            
+
             <div className="allPets">
               <h2>Pets for adoption</h2>
             {this.state.pets.map((pet, i) => {
-              return <Pets
+              return  <Pets
                         pet={pet} key={i}
                         deletePet={this.deletePet}
                         updatePet={this.updatePet}
