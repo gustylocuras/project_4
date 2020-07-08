@@ -13,6 +13,62 @@ class App extends React.Component {
   })
 }
 
+
+//DELETE PET
+
+deletePet = (event) => {
+  console.log(event.target.value);
+  axios.delete('/pets/' + event.target.value).then(
+    (response) => {
+      console.log(response);
+      this.setState({
+        pets: response.data
+      })
+    }
+  )
+}
+
+//UPDATE PET INFO
+
+updatePet = (event) => {
+  event.preventDefault()
+  const id = event.target.getAttribute('id')
+  axios.put('/pets/' + id,
+    {
+      name: this.state.updatedPetName,
+      image: this.state.updatedPetImage,
+      description: this.state.updatedPetDescription
+    }).then(
+      (response) => {
+        this.setState({
+          pets: response.data
+        })
+      }
+    )
+}
+
+//UPDATE FROM VALUES
+
+changeUpdatedPetName = (event) => {
+  this.setState({
+    updatedPetName: event.target.value
+  })
+}
+
+changeUpdatedPetImage = (event) => {
+  this.setState({
+    updatedPetImage: event.target.value
+  })
+}
+
+changeUpdatedPetDescription = (event) => {
+  this.setState({
+    updatedPetDescription: event.target.value
+  })
+}
+
+
+//CREATE PET
 createPet = (event) => {
   event.preventDefault()
   axios.post('/pets',
@@ -60,7 +116,14 @@ changeNewPetDescription = (event) => {
             <h2>Pets for adoption</h2>
             <div className="allPets">
             {this.state.pets.map((pet, i) => {
-              return <Pets pets={pet} key={i}  />
+              return <Pets
+                        pet={pet} key={i}
+                        deletePet={this.deletePet}
+                        updatePet={this.updatePet}
+                        changeUpdatedPetName ={this.changeUpdatedPetName}
+                        changeUpdatedPetImage={this.changeUpdatedPetImage}
+                        changeUpdatedPetDescription={this.changeUpdatedPetDescription}
+                      />
             })}
 
             </div>
@@ -71,17 +134,32 @@ changeNewPetDescription = (event) => {
 
 class Pets extends React.Component{
   state = {
-    adopted: false
+    show: false
   }
 
-  toggleShowPet = () => {
+  toggleShowForm = () => {
     this.setState({
-      adopted: !this.state.adopted
+      show: !this.state.show
     })
   }
 
   render = () => {
-    return <div>{this.props.pets.name}</div>
+    const { pet } = this.props
+    return <div className="pet container">
+              <h2>{pet.name}</h2>
+              <img src={pet.image} />
+              <p>{pet.description}</p>
+              {(this.state.show) ?
+          <form id={pet.id} onSubmit={this.props.updatePet}>
+              <input onKeyUp={this.props.changeUpdatedPetName} type="text"placeholder="name"/><br/>
+              <input onKeyUp={this.props.changeUpdatedPetImage} type="text"placeholder="image"/><br/>
+              <input onKeyUp={this.props.changeUpdatedPetDescription} type="text"placeholder="body"/><br/>
+              <input type="submit"value="update"/><br/>
+            </form>
+          : "" }
+              <button onClick={this.props.deletePet} value={pet.id}>ADOPT</button>
+              <button onClick={this.toggleShowForm}>EDIT</button>
+            </div>
   }
 }
 

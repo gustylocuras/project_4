@@ -14,4 +14,4 @@ RewriteCond %{REQUEST_METHOD} ^PUT$
 RewriteRule ^pets/([0-9]+)$ controllers/pets.php?action=update&id=$1
 
 RewriteCond %{REQUEST_METHOD} ^DELETE$
-RewriteRule ^posts/([0-9]+)$ controllers/pets.php?action=delete&id=$1
+RewriteRule ^pets/([0-9]+)$ controllers/pets.php?action=delete&id=$1
