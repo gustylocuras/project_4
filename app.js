@@ -133,8 +133,9 @@ toggleHomePage = () => {
     </nav>
     <div className="container">
         { this.state.createFormShow ? (
+        <div>
           <div className="create-form">
-    
+
           <h2>Post Pet</h2>
             <form className="container"  onSubmit={this.createPet}>
               <input onKeyUp={this.changeNewPetName} type="text" placeholder="name"/><br/>
@@ -142,26 +143,25 @@ toggleHomePage = () => {
               <input onKeyUp={this.changeNewPetDescription} type="text" placeholder="description"/><br/>
               <input type="submit" value="Post Pet"/>
             </form>
+          </div>
+          <div className="carousel">
+
+               <a className="carousel-item" href="#one!"><img src={images[0]} /> </a>
+               <a className="carousel-item" href="#one!"><img src={images[1]} /> </a>
+               <a className="carousel-item" href="#one!"><img src={images[2]} /> </a>
+               <a className="carousel-item" href="#one!"><img src={images[3]} /> </a>
+               <a className="carousel-item" href="#one!"><img src={images[4]} /> </a>
+               <a className="carousel-item" href="#one!"><img src={images[5]} /> </a>
+               <a className="carousel-item" href="#one!"><img src={images[6]} /> </a>
 
           </div>
+
+        </div>
           ) : " "
         }
 
         { this.state.homePageShow ? (
 
-            <div className="carousel">
-
-                 <a className="carousel-item" href="#one!"><img src={images[0]} /> </a>
-                 <a className="carousel-item" href="#one!"><img src={images[1]} /> </a>
-                 <a className="carousel-item" href="#one!"><img src={images[2]} /> </a>
-                 <a className="carousel-item" href="#one!"><img src={images[3]} /> </a>
-                 <a className="carousel-item" href="#one!"><img src={images[4]} /> </a>
-                 <a className="carousel-item" href="#one!"><img src={images[5]} /> </a>
-                 <a className="carousel-item" href="#one!"><img src={images[6]} /> </a>
-
-            </div>
-            </div>
-            
 
             <div className="allPets">
               <h2>Pets for adoption</h2>
