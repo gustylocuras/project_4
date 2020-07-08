@@ -1,6 +1,8 @@
 class App extends React.Component {
   state = {
-    pets: []
+    pets: [],
+    homePageShow: true,
+    createFormShow: false,
   }
 
   componentDidMount = () => {
@@ -103,14 +105,36 @@ changeNewPetDescription = (event) => {
   })
 }
 
+toggleCreateForm = () => {
+  this.setState({
+    createFormShow: true,
+    homePageShow: false
+  })
+}
+
+toggleHomePage = () => {
+  this.setState({
+    homePageShow: true,
+    createFormShow: false
+  })
+}
+
 
   render = () => {
-    let images = []
+     let images = []
     for(let pet of this.state.pets){
       images.push(pet.image);
     }
-    return <div className="container">
-          <div>
+    return <div>
+    <nav className="nav-bar">
+      Navigation
+      <button onClick={this.toggleHomePage}>Home</button>
+      <button onClick={this.toggleCreateForm}>Create adoption request</button>
+    </nav>
+    <div className="container">
+        { this.state.createFormShow ? (
+          <div className="create-form">
+    
           <h2>Post Pet</h2>
             <form className="container"  onSubmit={this.createPet}>
               <input onKeyUp={this.changeNewPetName} type="text" placeholder="name"/><br/>
@@ -118,6 +142,13 @@ changeNewPetDescription = (event) => {
               <input onKeyUp={this.changeNewPetDescription} type="text" placeholder="description"/><br/>
               <input type="submit" value="Post Pet"/>
             </form>
+
+          </div>
+          ) : " "
+        }
+
+        { this.state.homePageShow ? (
+
             <div className="carousel">
 
                  <a className="carousel-item" href="#one!"><img src={images[0]} /> </a>
@@ -130,8 +161,10 @@ changeNewPetDescription = (event) => {
 
             </div>
             </div>
-            <h2>Pets for adoption</h2>
+            
+
             <div className="allPets">
+              <h2>Pets for adoption</h2>
             {this.state.pets.map((pet, i) => {
               return  <Pets
                         pet={pet} key={i}
@@ -144,8 +177,10 @@ changeNewPetDescription = (event) => {
             })}
 
             </div>
+          ) : ""
+        }
             </div>
-
+          </div>
   }
 }
 
