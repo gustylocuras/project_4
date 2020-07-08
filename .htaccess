@@ -1,0 +1,17 @@
+Header always set Access-Control-Allow-Origin "*"
+Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS, DELETE, PUT"
+Header always set Access-Control-Allow-Headers "Content-Type"
+
+RewriteEngine ON
+
+RewriteCond %{REQUEST_METHOD} ^GET$
+RewriteRule ^pets$ controllers/pets.php?action=index
+
+RewriteCond %{REQUEST_METHOD} ^POST$
+RewriteRule ^pets$ controllers/pets.php?action=post
+
+RewriteCond %{REQUEST_METHOD} ^PUT$
+RewriteRule ^pets/([0-9]+)$ controllers/pets.php?action=update&id=$1
+
+RewriteCond %{REQUEST_METHOD} ^DELETE$
+RewriteRule ^posts/([0-9]+)$ controllers/pets.php?action=delete&id=$1
