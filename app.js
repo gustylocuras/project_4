@@ -126,11 +126,24 @@ toggleHomePage = () => {
       images.push(pet.image);
     }
     return <div>
+
     <nav className="nav-bar">
-      Navigation
-      <button onClick={this.toggleHomePage}>Home</button>
-      <button onClick={this.toggleCreateForm}>Create adoption request</button>
+      <div className="nav-wrapper">
+        <a className="brand-logo">Pet adoption agency</a>
+        <a href="" className="sidenav-trigger" data-target="mobile-menu">
+          <i className="material-icons">menu</i>
+        </a>
+        <ul className="right hide-on-med-and-down">
+          <li><a className="waves-effect waves-light btn" onClick={this.toggleHomePage}>Home</a></li>
+          <li><a className="waves-effect waves-light btn" onClick={this.toggleCreateForm}>Post adoption</a></li>
+        </ul>
+        <ul className="sidenav grey lighten-2" id="mobile-menu">
+          <li><a className="waves-effect waves-light btn" onClick={this.toggleHomePage}>Home</a></li>
+          <li><a className="waves-effect waves-light btn" onClick={this.toggleCreateForm}>Post adoption</a></li>
+        </ul>
+      </div>
     </nav>
+
     <div className="container">
         { this.state.createFormShow ? (
         <div>
