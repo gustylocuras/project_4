@@ -7,7 +7,9 @@ class App extends React.Component {
   axios.get('/pets').then((response) => {
     this.setState({
       pets: response.data
+
     })
+
   })
 }
 
@@ -47,9 +49,9 @@ changeNewPetDescription = (event) => {
 
 
   render = () => {
-    return <div>
+    return <div className="container">
           <h2>Post Pet</h2>
-            <form  onSubmit={this.createPet}>
+            <form className="container"  onSubmit={this.createPet}>
               <input onKeyUp={this.changeNewPetName} type="text" placeholder="name"/><br/>
               <input onKeyUp={this.changeNewPetImage} type="text" placeholder="image url"/><br/>
               <input onKeyUp={this.changeNewPetDescription} type="text" placeholder="description"/><br/>
