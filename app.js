@@ -129,7 +129,7 @@ toggleHomePage = () => {
 
     <nav className="nav-bar">
       <div className="nav-wrapper">
-        <a className="brand-logo">Pet adoption agency</a>
+        <a className="brand-logo">AJ's Adoption Agency</a>
         <a href="" className="sidenav-trigger" data-target="mobile-menu">
           <i className="material-icons">menu</i>
         </a>
@@ -215,16 +215,18 @@ class Pets extends React.Component{
               <img src={pet.image} />
               <p>{pet.description}</p>
               {(this.state.show) ?
-          <form id={pet.id} onSubmit={this.props.updatePet}>
+          <form className="form" id={pet.id} onSubmit={this.props.updatePet}>
               <input onKeyUp={this.props.changeUpdatedPetName} type="text"placeholder="name"/><br/>
               <input onKeyUp={this.props.changeUpdatedPetImage} type="text"placeholder="image"/><br/>
               <input onKeyUp={this.props.changeUpdatedPetDescription} type="text"placeholder="body"/><br/>
-              <input type="submit"value="update"/><br/>
+                <input className="btn-floating btn waves-effect waves-light orange darken-3" type="submit" value="+"/><br/>
             </form>
           : "" }
-              <button onClick={this.props.deletePet} value={pet.id}>ADOPT</button>
-              <button onClick={this.toggleShowForm}>EDIT</button>
-            </div>
+          <div className="pet-buttons">
+              <button className="btn" onClick={this.props.deletePet} value={pet.id}>ADOPT</button>
+              <button className="btn" onClick={this.toggleShowForm}>EDIT</button>
+          </div>
+      </div>
   }
 }
 
