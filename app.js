@@ -134,8 +134,8 @@ toggleHomePage = () => {
           <i className="material-icons">menu</i>
         </a>
         <ul className="hide-on-med-and-down">
-        <li className="iconCont" ><i  onClick={this.toggleHomePage} className="material-icons navIcon1">home</i></li>
-        <li className="iconCont"><i  onClick={this.toggleCreateForm} className="material-icons navIcon2">pets</i></li>
+        <i  onClick={this.toggleHomePage} className="material-icons right navigation">home</i>
+        <i  onClick={this.toggleCreateForm} className="material-icons right navigation">pets</i>
         </ul>
         <ul className="sidenav grey lighten-2" id="mobile-menu">
           <li><a className="waves-effect waves-light btn teal lighten-2" onClick={this.toggleHomePage}>Home</a></li>

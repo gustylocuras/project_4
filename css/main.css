@@ -6,33 +6,20 @@
   font-family: 'Indie Flower', cursive;
   margin-left: 1em;
 }
+.navigation {
 
-.iconCont {
-  padding: 0;
-  margin: 0;
-  border-radius: 100px;
+
+  border-radius: 400px;
+  margin-right: 2%;
+  padding-top: 0px;
+
 }
 
-.navIcon1 {
-  margin-right: auto;
-  position: absolute;
-  left: 900px;
+
+.navigation:hover {
+  box-shadow: 0px 10px 60px 20px rgba(255, 255, 255, 0.5);
   cursor: pointer;
-  border-radius: 200px;
-  padding: none;
-}
-.navIcon2 {
-  margin-right: auto;
-  position: absolute;
-  left: 980px;
-  cursor: pointer;
-  border-radius: 200px;
-  padding: none;
-}
-
-.navIcon1:hover,
-.navIcon2:hover {
-  box-shadow: 0px 5px 50px 0 rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 
