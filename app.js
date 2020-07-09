@@ -81,7 +81,9 @@ createPet = (event) => {
 }).then(
     (response) => {
       this.setState({
-        pets:response.data
+        pets:response.data,
+        homePageShow: true,
+        createFormShow: false
       })
     }
   )
