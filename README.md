@@ -1,6 +1,6 @@
 # :feet: AJ's Adoption Agency :feet:
 
-![Image of app here](https:/)
+![Image of app here](https://i.imgur.com/ExPkv8J.png)
 
 ### :computer: Creators:
 
@@ -96,4 +96,4 @@ The user can:
 
 ## :egg: :thought_balloon: Future Features:
 - Implement Auth so there can be accounts for users who want to adopt pets and separate accounts for animal shelters who want to give their pets a forever home.
-- Expand upon the carousel so it can dynamically change based on the amount of pets up for adoption. 
+- Expand upon the carousel so it can dynamically change based on the amount of pets up for adoption.
