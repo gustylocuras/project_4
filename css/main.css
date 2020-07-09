@@ -1,0 +1,61 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Modak&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Indie+Flower&family=Modak&display=swap');
+
+.brand-logo {
+  font-family: 'Indie Flower', cursive;
+  margin-left: 1em;
+}
+
+.iconCont {
+  padding: 0;
+  margin: 0;
+  border-radius: 100px;
+}
+
+.navIcon1 {
+  margin-right: auto;
+  position: absolute;
+  left: 900px;
+  cursor: pointer;
+  border-radius: 200px;
+  padding: none;
+}
+.navIcon2 {
+  margin-right: auto;
+  position: absolute;
+  left: 980px;
+  cursor: pointer;
+  border-radius: 200px;
+  padding: none;
+}
+
+.navIcon1:hover,
+.navIcon2:hover {
+  box-shadow: 0px 5px 50px 0 rgba(255, 255, 255, 0.5);
+}
+
+
+.btn {
+  font-family: 'Indie Flower', cursive;
+  font-size: 1em;
+  font-weight: 800;
+}
+
+.btn-floating {
+  margin: 2%;
+  font-size: 25px;
+  text-align: center;
+}
+
+h2{
+font-family: 'Indie Flower', cursive;
+color: rgb(52,131,143);
+
+}
+
+.form {
+  border: 2px solid rgb(234,234,234);
+  background-color: rgba(178,235,242,.4);
+  padding: 2%;
+}

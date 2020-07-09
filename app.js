@@ -133,13 +133,13 @@ toggleHomePage = () => {
         <a href="" className="sidenav-trigger" data-target="mobile-menu">
           <i className="material-icons">menu</i>
         </a>
-        <ul className="right hide-on-med-and-down">
-          <li><a className="waves-effect waves-light btn" onClick={this.toggleHomePage}>Home</a></li>
-          <li><a className="waves-effect waves-light btn" onClick={this.toggleCreateForm}>Post adoption</a></li>
+        <ul className="hide-on-med-and-down">
+        <li className="iconCont" ><i  onClick={this.toggleHomePage} className="material-icons navIcon1">home</i></li>
+        <li className="iconCont"><i  onClick={this.toggleCreateForm} className="material-icons navIcon2">pets</i></li>
         </ul>
         <ul className="sidenav grey lighten-2" id="mobile-menu">
-          <li><a className="waves-effect waves-light btn" onClick={this.toggleHomePage}>Home</a></li>
-          <li><a className="waves-effect waves-light btn" onClick={this.toggleCreateForm}>Post adoption</a></li>
+          <li><a className="waves-effect waves-light btn teal lighten-2" onClick={this.toggleHomePage}>Home</a></li>
+          <li><a className="waves-effect waves-light btn teal lighten-2" onClick={this.toggleCreateForm}>Post adoption</a></li>
         </ul>
       </div>
     </nav>
@@ -149,12 +149,12 @@ toggleHomePage = () => {
         <div>
           <div className="create-form">
 
-          <h2>Post Pet</h2>
-            <form className="container"  onSubmit={this.createPet}>
+          <h2 className="center">Post Pet</h2>
+            <form className="form container"  onSubmit={this.createPet}>
               <input onKeyUp={this.changeNewPetName} type="text" placeholder="name"/><br/>
               <input onKeyUp={this.changeNewPetImage} type="text" placeholder="image url"/><br/>
               <input onKeyUp={this.changeNewPetDescription} type="text" placeholder="description"/><br/>
-              <input type="submit" value="Post Pet"/>
+              <input className="btn-floating btn-large waves-effect waves-light orange darken-3" type="submit" value="+"/>
             </form>
           </div>
           <div className="carousel">
@@ -176,8 +176,8 @@ toggleHomePage = () => {
         { this.state.homePageShow ? (
 
 
-            <div className="allPets">
-              <h2>Pets for adoption</h2>
+            <div className="allPets container">
+              <h2 className="center">Pets for adoption</h2>
             {this.state.pets.map((pet, i) => {
               return  <Pets
                         pet={pet} key={i}
@@ -211,7 +211,7 @@ class Pets extends React.Component{
   render = () => {
     const { pet } = this.props
     return <div className="pet container">
-              <h2>{pet.name}</h2>
+              <h3>{pet.name}</h3>
               <img src={pet.image} />
               <p>{pet.description}</p>
               {(this.state.show) ?
