@@ -98,4 +98,14 @@ main {
 
 .pet-buttons button {
   margin: 5%;
+  border-radius: 10%;
+}
+
+footer {
+  font-family: 'Indie Flower', cursive;
+}
+
+footer p {
+  font-size: 16px;
+  font-weight: 600;
 }
